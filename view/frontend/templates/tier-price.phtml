@@ -1,0 +1,23 @@
+<?php
+declare(strict_types=1);
+use Magento\Framework\View\Element\Template;
+use Habr\TierPrice\ViewModel\TierPrice;
+/** @var Template $block */
+/** @var TierPrice $viewModel */
+
+$viewModel = $block->getData('viewModel');
+?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "tier-price": {
+                        "component": "Habr_TierPrice/js/tier-price",
+                        "config": <?= $viewModel->getJsonConfig(); ?>
+                    }
+                }
+            }
+        }
+    }
+</script>
